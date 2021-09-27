@@ -1,46 +1,85 @@
-import { useState, useEffect } from "react";
+import { Component } from "react";
 
 import Main from "../Main";
 import Modal from "../Modal";
 
 import { URL_GET_MONTH } from "../../utils/utils";
 
-import "./style.scss";
-
-function App() {
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`${URL_GET_MONTH}10/2021`);
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      return error;
-    }
+class App extends Component {
+  state = {
+    actuallyMonth: [],
   };
 
-  const getMonths = async () => {
-    const data = await fetchData();
-    setMonth(data.data.days);
-    console.log("getmonths");
+  fetchMonth = () => {
+    console.log(this.state.actuallyMonth);
+    fetch(`${URL_GET_MONTH}10/2021`)
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          actuallyMonth: data.data.days,
+        });
+      });
   };
 
-  useEffect(() => {
-    getMonths();
-  }, []);
-  const [month, setMonth] = useState(0);
-
-  return (
-    <div className="app-container">
-      <Main
-        actuallyMonth={[
-          { date: "01-11-2021", dayId: 0, events: [1, 2] },
-          { date: "01-11-2021", dayId: 1, events: [1, 2] },
-          { date: "01-11-2021", dayId: 2, events: [1, 2] },
-        ]}
-      />
-      {/* {activeDay && <Modal />} */}
-    </div>
-  );
+  render() {
+    console.log(this.state.actuallyMonth);
+    return (
+      <div>
+        <button onClick={() => this.fetchMonth()}>Pobierz miesiąc</button>
+        <Main actuallyMonth={this.state.actuallyMonth} />
+      </div>
+    );
+  }
 }
 
 export default App;
+
+// komponent funkcyjny
+
+// import { useState, useEffect } from "react";
+
+// import Main from "../Main";
+// import Modal from "../Modal";
+
+// import { URL_GET_MONTH } from "../../utils/utils";
+
+// import "./style.scss";
+
+// function App() {
+//   const fetchData = async () => {
+//     try {
+//       const response = await fetch(`${URL_GET_MONTH}10/2021`);
+//       const data = await response.json();
+//       return data;
+//     } catch (error) {
+//       return error;
+//     }
+//   };
+
+//   // const getMonths = async () => {
+//   //   const data = await fetchData();
+//   //   setMonth(data.data.days);
+//   //   console.log("getmonths");
+//   // };
+
+//   const getMonths = async () => {
+//     await fetchData().then((data) => data.data.days);
+//   };
+//   const [month, setMonth] = useState(getMonths());
+
+//   console.log(month);
+//   return (
+//     <div className="app-container">
+//       <Main
+//         actuallyMonth={[
+//           { date: "01-11-2021", dayId: 0, events: [1, 2] },
+//           { date: "01-11-2021", dayId: 1, events: [1, 2] },
+//           { date: "01-11-2021", dayId: 2, events: [1, 2] },
+//         ]}
+//       />
+//       {/* {activeDay && <Modal />} */}
+//     </div>
+//   );
+// }
+
+// export default App;
