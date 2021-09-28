@@ -10,9 +10,12 @@ class App extends Component {
     actuallyMonth: [],
   };
 
+  currentMonth = new Date().getMonth();
+  currentYear = new Date().getFullYear();
+
   fetchMonth = () => {
-    console.log(this.state.actuallyMonth);
-    fetch(`${URL_GET_MONTH}10/2021`)
+    console.log(this.currentMonth);
+    fetch(`${URL_GET_MONTH}${this.currentMonth}/${this.currentYear}`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
