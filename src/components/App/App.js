@@ -1,7 +1,6 @@
 import { Component } from "react";
 
 import Main from "../Main";
-import Modal from "../Modal";
 
 import { URL_GET_MONTH } from "../../utils/utils";
 
@@ -23,12 +22,6 @@ class App extends Component {
         });
       });
   };
-
-  // addEvents = (idDay, dayEvents) => {
-  //   const copy = this.state.actuallyMonth
-  //   const newEvents = copy[idDay].events.push(dayEvents)
-  //   this.setState(newEvents)
-  // }
 
   render() {
     console.log(this.state.actuallyMonth);

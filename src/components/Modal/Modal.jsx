@@ -4,7 +4,7 @@ import TaskList from "../TaskList";
 
 import "./style.scss";
 
-const Modal = ({ day, isDisplay, set }) => {
+const Modal = ({ day, isDisplay, actuallyDate }) => {
   const modalOverlayBackground = useRef(null);
 
   useEffect(() => {
@@ -20,17 +20,6 @@ const Modal = ({ day, isDisplay, set }) => {
   const [bodyTask, setBodyTask] = useState("");
   // const [date, setDate] = useState("");
 
-  const actuallyDay = day.date.slice(0, 2).replace("-", "") * 1 - 1;
-  console.log(actuallyDay);
-
-  const actuallyMonth =
-    day.date.slice(-7, -4).replace("-", "").replace("-", "") * 1 - 1;
-  console.log(actuallyMonth);
-
-  const actuallyYear = day.date.slice(-4);
-  console.log(actuallyYear);
-
-  const actuallyDate = `${actuallyDay}/${actuallyMonth}/${actuallyYear}`;
   const addTask = async (task) => {
     // setDate(actuallyDate);
 
@@ -44,9 +33,7 @@ const Modal = ({ day, isDisplay, set }) => {
         },
       }
     );
-    console.log(
-      `https://calendar-app-szadziu.herokuapp.com/api/event/${actuallyDay}/${actuallyMonth}/${actuallyYear}`
-    );
+
     return response.json();
   };
 
