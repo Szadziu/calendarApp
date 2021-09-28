@@ -1,0 +1,22 @@
+.modal-calendar {
+  // display: none;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 70vh;
+  background-color: #ddd;
+  text-align: center;
+  line-height: 500px;
+}
+.modal-overlay {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: cornflowerblue;
+}
