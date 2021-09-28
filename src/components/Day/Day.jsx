@@ -4,7 +4,7 @@ import Modal from "../Modal";
 
 import "./style.scss";
 
-const Day = ({ id, day }) => {
+const Day = ({ id, day, actuallyMonth, set }) => {
   const [isShowModal, setIsShowModal] = useState(false);
 
   return (
@@ -16,7 +16,15 @@ const Day = ({ id, day }) => {
     >
       <p>{day.date}</p>
       <p>Events: {day.events.length}</p>
-      {isShowModal && <Modal isDisplay={setIsShowModal} day={day} idDay={id} />}
+      {isShowModal && (
+        <Modal
+          set={set}
+          actuallyMonth={actuallyMonth}
+          isDisplay={setIsShowModal}
+          day={day}
+          idDay={id}
+        />
+      )}
     </div>
   );
 };

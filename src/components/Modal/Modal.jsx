@@ -4,7 +4,7 @@ import TaskList from "../TaskList";
 
 import "./style.scss";
 
-const Modal = ({ day, isDisplay }) => {
+const Modal = ({ day, isDisplay, set }) => {
   const modalOverlayBackground = useRef(null);
 
   useEffect(() => {
@@ -18,20 +18,22 @@ const Modal = ({ day, isDisplay }) => {
 
   const [titleTask, setTitleTask] = useState("");
   const [bodyTask, setBodyTask] = useState("");
-  // const [task, setTask] = useState({});
+  // const [date, setDate] = useState("");
 
+  const actuallyDay = day.date.slice(0, 2).replace("-", "") * 1 - 1;
+  console.log(actuallyDay);
+
+  const actuallyMonth =
+    day.date.slice(-7, -4).replace("-", "").replace("-", "") * 1 - 1;
+  console.log(actuallyMonth);
+
+  const actuallyYear = day.date.slice(-4);
+  console.log(actuallyYear);
+
+  const actuallyDate = `${actuallyDay}/${actuallyMonth}/${actuallyYear}`;
   const addTask = async (task) => {
-    const actuallyDay = day.date.slice(0, 2).replace("-", "") * 1 - 1;
-    console.log(actuallyDay);
-    const actuallyMonth =
-      day.date.slice(-7, -4).replace("-", "").replace("-", "") * 1 - 1;
-    console.log(actuallyMonth);
-    const actuallyYear = day.date.slice(-4);
-    console.log(actuallyYear);
+    // setDate(actuallyDate);
 
-    const actuallyDate = `${actuallyDay}/${actuallyMonth}/${actuallyYear}`;
-
-    console.log(typeof actuallyDate);
     const response = await fetch(
       `https://calendar-app-szadziu.herokuapp.com/api/event/${actuallyDate}`,
       {
@@ -73,7 +75,7 @@ const Modal = ({ day, isDisplay }) => {
           type="text"
           onChange={({ target: { value } }) => setBodyTask(value)}
         />
-        <TaskList day={day} />
+        <TaskList actuallyDate={actuallyDate} day={day} />
       </div>
     </>
   );

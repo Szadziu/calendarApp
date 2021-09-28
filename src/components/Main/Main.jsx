@@ -3,11 +3,11 @@ import Header from "../Header";
 
 import "./style.scss";
 
-const Main = ({ actuallyMonth }) => {
+const Main = ({ actuallyMonth, set }) => {
   return (
     <div className="main-container">
       <Header />
-      <Calendar actuallyMonth={actuallyMonth} />
+      <Calendar set={set} actuallyMonth={actuallyMonth} />
     </div>
   );
 };

@@ -24,12 +24,21 @@ class App extends Component {
       });
   };
 
+  // addEvents = (idDay, dayEvents) => {
+  //   const copy = this.state.actuallyMonth
+  //   const newEvents = copy[idDay].events.push(dayEvents)
+  //   this.setState(newEvents)
+  // }
+
   render() {
     console.log(this.state.actuallyMonth);
     return (
       <div>
         <button onClick={() => this.fetchMonth()}>Pobierz miesiąc</button>
-        <Main actuallyMonth={this.state.actuallyMonth} />
+        <Main
+          set={this.setActuallyMonth}
+          actuallyMonth={this.state.actuallyMonth}
+        />
       </div>
     );
   }
