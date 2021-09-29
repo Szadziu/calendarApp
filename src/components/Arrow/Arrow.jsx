@@ -3,12 +3,10 @@ import "./style.scss";
 const Arrow = ({ setNewMonth, setNewYear, currentMonth, currentYear }) => {
   const setPreviousYear = () => {
     setNewYear(currentYear - 1);
-    // else setNewYear(currentYear - 1);
   };
 
   const setNextYear = () => {
     setNewYear(currentYear + 1);
-    // else setNewYear(currentYear + 1);
   };
 
   const setPreviousMonth = () => {

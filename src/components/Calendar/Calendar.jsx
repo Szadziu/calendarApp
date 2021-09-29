@@ -2,14 +2,13 @@ import Day from "../Day";
 
 import "./style.scss";
 
-const Calendar = ({ actuallyMonth, set }) => {
+const Calendar = ({ actuallyMonth }) => {
   const renderDays = actuallyMonth.map((day) => (
     <Day
       actuallyMonth={actuallyMonth}
       key={day.dayId}
       id={day.dayId}
       day={day}
-      set={set}
     />
   ));
 
