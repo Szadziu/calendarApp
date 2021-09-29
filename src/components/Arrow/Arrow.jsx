@@ -1,26 +1,31 @@
 import "./style.scss";
 
-const Arrow = ({ setNewMonth, setNewYear, currentMonth, currentYear }) => {
+const Arrow = ({
+  setCurrentMonth,
+  setCurrentYear,
+  currentMonth,
+  currentYear,
+}) => {
   const setPreviousYear = () => {
-    setNewYear(currentYear - 1);
+    setCurrentYear(currentYear - 1);
   };
 
   const setNextYear = () => {
-    setNewYear(currentYear + 1);
+    setCurrentYear(currentYear + 1);
   };
 
   const setPreviousMonth = () => {
     if (currentMonth <= 0) {
-      setNewMonth(11);
+      setCurrentMonth(11);
       setPreviousYear();
-    } else setNewMonth(currentMonth - 1);
+    } else setCurrentMonth(currentMonth - 1);
   };
 
   const setNextMonth = () => {
     if (currentMonth >= 11) {
-      setNewMonth(0);
+      setCurrentMonth(0);
       setNextYear();
-    } else setNewMonth(currentMonth + 1);
+    } else setCurrentMonth(currentMonth + 1);
   };
 
   return (

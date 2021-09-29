@@ -3,27 +3,11 @@ import Header from "../Header";
 
 import "./style.scss";
 
-const Main = ({
-  actuallyMonth,
-  set,
-  currentMonth,
-  currentYear,
-  monthsOfYear,
-  setNewMonth,
-  setNewYear,
-  fetchMonth,
-}) => {
+const Main = ({ actuallyMonth, fetchMonth }) => {
   return (
     <div className="main-container">
-      <Header
-        currentMonth={currentMonth}
-        currentYear={currentYear}
-        monthsOfYear={monthsOfYear}
-        setNewMonth={setNewMonth}
-        setNewYear={setNewYear}
-        fetchMonth={fetchMonth}
-      />
-      <Calendar set={set} actuallyMonth={actuallyMonth} />
+      <Header fetchMonth={fetchMonth} />
+      <Calendar actuallyMonth={actuallyMonth} />
     </div>
   );
 };

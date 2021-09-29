@@ -11,3 +11,18 @@ export const DAYS_OF_WEEK = [
   "Sobota",
   "Niedziela",
 ];
+
+export const MONTHS_OF_YEAR = [
+  "Styczeń",
+  "Luty",
+  "Marzec",
+  "Kwiecień",
+  "Maj",
+  "Czerwiec",
+  "Lipiec",
+  "Sierpień",
+  "Wrzesień",
+  "Październik",
+  "Listopad",
+  "Grudzień",
+];

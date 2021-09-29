@@ -27,7 +27,7 @@ const Day = ({ id, day }) => {
         setIsShowModal(true);
       }}
     >
-      <p>{day.date.slice(0, 2).replace("-", "")}</p>
+      <p className="">{day.date.slice(0, 2).replace("-", "")}</p>
       <p className={isSundayDay}>{DAYS_OF_WEEK[indexDayOfWeek]}</p>
       <p className={isEventOnDay}>Events: {day.events.length}</p>
       {isShowModal && (
