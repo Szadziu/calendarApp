@@ -1,0 +1,18 @@
+.task-list-container {
+  width: 50%;
+  height: 100%;
+  background-color: coral;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  list-style-type: none;
+}
+
+.task {
+  display: flex;
+  flex-direction: column;
+}

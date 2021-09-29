@@ -1,3 +1,14 @@
+.arrows-container {
+  display: flex;
+  width: 60vw;
+  justify-content: space-between;
+}
+
 .arrow {
-  margin: 0 20px;
+  font-size: 44px;
+  margin-bottom: 15px;
+}
+
+.arrow:hover {
+  cursor: pointer;
 }

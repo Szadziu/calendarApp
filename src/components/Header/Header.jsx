@@ -1,13 +1,14 @@
-import Month from "../Month";
+import { useEffect } from "react";
 import Arrow from "../Arrow";
 import "./style.scss";
 
-const Header = () => {
+const Header = ({ currentMonth, monthsOfYear, setNewMonth, fetchMonth }) => {
+  useEffect(() => fetchMonth(), [currentMonth]);
+
   return (
     <header className="header-calendar">
-      <Arrow />
-      <Month />
-      <Arrow />
+      <h1>{monthsOfYear[currentMonth]}</h1>
+      <Arrow currentMonth={currentMonth} setNewMonth={setNewMonth} />
     </header>
   );
 };

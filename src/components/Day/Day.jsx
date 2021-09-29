@@ -8,14 +8,11 @@ const Day = ({ id, day, set }) => {
   const [isShowModal, setIsShowModal] = useState(false);
 
   const actuallyDay = day.date.slice(0, 2).replace("-", "") * 1 - 1;
-  console.log(actuallyDay);
 
   const actuallyMonth =
     day.date.slice(-7, -4).replace("-", "").replace("-", "") * 1 - 1;
-  console.log(actuallyMonth);
 
   const actuallyYear = day.date.slice(-4);
-  console.log(actuallyYear);
 
   const actuallyDate = `${actuallyDay}/${actuallyMonth}/${actuallyYear}`;
 

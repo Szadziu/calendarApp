@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, useEffect } from "react";
 
 import Main from "../Main";
 
@@ -7,14 +7,34 @@ import { URL_GET_MONTH } from "../../utils/utils";
 class App extends Component {
   state = {
     actuallyMonth: [],
+    currentMonth: new Date().getMonth(),
+    currentYear: new Date().getFullYear(),
   };
 
-  currentMonth = new Date().getMonth();
-  currentYear = new Date().getFullYear();
+  monthsOfYear = [
+    "Styczeń",
+    "Luty",
+    "Marzec",
+    "Kwiecień",
+    "Maj",
+    "Czerwiec",
+    "Lipiec",
+    "Sierpień",
+    "Wrzesień",
+    "Październik",
+    "Listopad",
+    "Grudzień",
+  ];
 
+  setNewMonth = (numberOfMonth) => {
+    this.setState({
+      currentMonth: numberOfMonth,
+    });
+  };
   fetchMonth = () => {
-    console.log(this.currentMonth);
-    fetch(`${URL_GET_MONTH}${this.currentMonth}/${this.currentYear}`)
+    fetch(
+      `${URL_GET_MONTH}${this.state.currentMonth}/${this.state.currentYear}`
+    )
       .then((response) => response.json())
       .then((data) => {
         this.setState({
@@ -24,13 +44,15 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.actuallyMonth);
     return (
       <div>
-        <button onClick={() => this.fetchMonth()}>Pobierz miesiąc</button>
         <Main
           set={this.setActuallyMonth}
           actuallyMonth={this.state.actuallyMonth}
+          monthsOfYear={this.monthsOfYear}
+          setNewMonth={this.setNewMonth}
+          currentMonth={this.state.currentMonth}
+          fetchMonth={this.fetchMonth}
         />
       </div>
     );
