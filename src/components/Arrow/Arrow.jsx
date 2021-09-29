@@ -30,11 +30,13 @@ const Arrow = ({
 
   return (
     <div className="arrows-container">
-      <div onClick={() => setPreviousMonth()} className="arrow">
-        ⬅️
-      </div>
       <div onClick={() => setNextMonth()} className="arrow">
-        ➡️
+        <div className="arrow-top"></div>
+        <div className="arrow-bottom"></div>
+      </div>
+      <div onClick={() => setPreviousMonth()} className="arrow arrow-left">
+        <div className="arrow-top"></div>
+        <div className="arrow-bottom"></div>
       </div>
     </div>
   );

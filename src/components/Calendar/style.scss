@@ -1,8 +1,10 @@
 .main-calendar {
-  background-color: lightpink;
+  background-color: #fefbe9;
+  box-shadow: 0 0 2px 0 black;
+  border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
+  margin: 20px auto 0;
   width: 90%;
   height: 90%;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;

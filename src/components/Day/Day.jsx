@@ -19,7 +19,7 @@ const Day = ({ id, day }) => {
   const indexDayOfWeek =
     new Date(actuallyYear, actuallyMonth, actuallyDay).getDay() + 1;
   const isEventOnDay = day.events.length && "isEventOn";
-  const isSundayDay = indexDayOfWeek === 7 && "isSundayDay";
+  const isSundayDay = indexDayOfWeek === 7 ? "isSundayDay" : "isDayOfWeek";
   return (
     <div
       className="day-calendar"
@@ -27,7 +27,9 @@ const Day = ({ id, day }) => {
         setIsShowModal(true);
       }}
     >
-      <p className="">{day.date.slice(0, 2).replace("-", "")}</p>
+      <p className="number-day-calendar">
+        {day.date.slice(0, 2).replace("-", "")}
+      </p>
       <p className={isSundayDay}>{DAYS_OF_WEEK[indexDayOfWeek]}</p>
       <p className={isEventOnDay}>Events: {day.events.length}</p>
       {isShowModal && (

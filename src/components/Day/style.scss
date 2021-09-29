@@ -5,24 +5,46 @@
   flex-basis: 12%;
   font-size: 12px;
   line-height: 1px;
-  background-color: #333;
+  background-color: #e1eedd;
   border-radius: 20px 10px;
   box-shadow: 0 0 1px 0 black;
-  color: #fff;
+  color: #183a1d;
+  font-family: "Oswald", sans-serif;
   margin: 10px;
   transition: 0.3s;
   &:hover {
-    background-color: #fff;
+    background-color: #f0a04b;
     color: #000;
     cursor: pointer;
   }
   &:hover p.isEventOn {
-    color: red;
+    color: #416a59;
+  }
+  &:hover p.number-day-calendar {
+    transform: translate(50px) scale(1.4) rotateZ(360deg);
+  }
+  &:hover p.isDayOfWeek {
+    transform: scale(1.6);
+  }
+  &:hover p.isSundayDay {
+    transform: scale(1.6);
   }
 }
 .isEventOn {
-  color: yellow;
+  color: rgb(241, 50, 50);
 }
 .isSundayDay {
-  color: red;
+  color: rgb(241, 50, 50);
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.isDayOfWeek {
+  transition: 0.3s;
+}
+
+.number-day-calendar {
+  font-size: 22px;
+  font-weight: 600;
+  transition: 0.5s;
 }

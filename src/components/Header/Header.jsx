@@ -13,7 +13,7 @@ const Header = ({ fetchMonth }) => {
 
   return (
     <header className="header-calendar">
-      <h1>{`${MONTHS_OF_YEAR[currentMonth]} ${currentYear}`}</h1>
+      <h1 className="month-calendar">{`${MONTHS_OF_YEAR[currentMonth]} ${currentYear}`}</h1>
       <Arrow
         currentMonth={currentMonth}
         currentYear={currentYear}
