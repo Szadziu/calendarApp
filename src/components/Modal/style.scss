@@ -1,7 +1,8 @@
 .modal-calendar {
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 10px;
   position: absolute;
   z-index: 2;
   top: 50%;
@@ -26,4 +27,29 @@
   &:hover {
     cursor: auto;
   }
+}
+.add-button-modal {
+  text-transform: uppercase;
+  background-color: #fff;
+  border: none;
+  border-radius: 20px 5px;
+  margin: 0 auto;
+  width: 10%;
+  height: 80px;
+  font-family: arial;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 0 2px 0 black;
+  transition: 0.3s;
+  &:hover {
+    cursor: pointer;
+    background-color: #bbb;
+  }
+}
+
+.title-label,
+.body-label {
+  text-align: left;
+  margin-left: 15px;
+  font-size: 14px;
 }

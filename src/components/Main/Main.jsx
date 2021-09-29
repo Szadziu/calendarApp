@@ -7,16 +7,20 @@ const Main = ({
   actuallyMonth,
   set,
   currentMonth,
+  currentYear,
   monthsOfYear,
   setNewMonth,
+  setNewYear,
   fetchMonth,
 }) => {
   return (
     <div className="main-container">
       <Header
         currentMonth={currentMonth}
+        currentYear={currentYear}
         monthsOfYear={monthsOfYear}
         setNewMonth={setNewMonth}
+        setNewYear={setNewYear}
         fetchMonth={fetchMonth}
       />
       <Calendar set={set} actuallyMonth={actuallyMonth} />

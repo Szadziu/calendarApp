@@ -18,11 +18,8 @@ const Modal = ({ day, isDisplay, actuallyDate }) => {
 
   const [titleTask, setTitleTask] = useState("");
   const [bodyTask, setBodyTask] = useState("");
-  // const [date, setDate] = useState("");
 
   const addTask = async (task) => {
-    // setDate(actuallyDate);
-
     const response = await fetch(
       `https://calendar-app-szadziu.herokuapp.com/api/event/${actuallyDate}`,
       {
@@ -41,12 +38,17 @@ const Modal = ({ day, isDisplay, actuallyDate }) => {
     <>
       <div ref={modalOverlayBackground} className="modal-overlay"></div>
       <div className="modal-calendar">
-        {`Wybrana data to: ${day.date} 
-       Masz ${day.events.length} wydarzeń na ten dzień`}
-        <button onClick={() => addTask({ title: titleTask, body: bodyTask })}>
+        <p>{`Wybrana data to: ${day.date}`}</p>
+        <p>{`Masz ${day.events.length} wydarzeń na ten dzień`}</p>
+        <button
+          className="add-button-modal"
+          onClick={() => addTask({ title: titleTask, body: bodyTask })}
+        >
           add task
         </button>
-        <label htmlFor="title">Title</label>
+        <label className="title-label" htmlFor="title">
+          Title
+        </label>
         <input
           value={titleTask}
           id="title"
@@ -54,7 +56,9 @@ const Modal = ({ day, isDisplay, actuallyDate }) => {
           type="text"
           onChange={({ target: { value } }) => setTitleTask(value)}
         />
-        <label htmlFor="body">Body</label>
+        <label className="body-label" htmlFor="body">
+          Body
+        </label>
         <input
           value={bodyTask}
           id="body"

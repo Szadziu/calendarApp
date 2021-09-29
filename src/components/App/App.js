@@ -31,6 +31,13 @@ class App extends Component {
       currentMonth: numberOfMonth,
     });
   };
+
+  setNewYear = (numberOfYear) => {
+    this.setState({
+      currentYear: numberOfYear,
+    });
+  };
+
   fetchMonth = () => {
     fetch(
       `${URL_GET_MONTH}${this.state.currentMonth}/${this.state.currentYear}`
@@ -51,7 +58,9 @@ class App extends Component {
           actuallyMonth={this.state.actuallyMonth}
           monthsOfYear={this.monthsOfYear}
           setNewMonth={this.setNewMonth}
+          setNewYear={this.setNewYear}
           currentMonth={this.state.currentMonth}
+          currentYear={this.state.currentYear}
           fetchMonth={this.fetchMonth}
         />
       </div>
