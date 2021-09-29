@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import Modal from "../Modal";
 
+import { DAYS_OF_WEEK } from "../../utils/utils";
+
 import "./style.scss";
 
 const Day = ({ id, day }) => {
@@ -14,33 +16,10 @@ const Day = ({ id, day }) => {
   };
   const actuallyDate = `${currentDateOfDay.actuallyDay}/${currentDateOfDay.actuallyMonth}/${currentDateOfDay.actuallyYear}`;
   const { actuallyDay, actuallyMonth, actuallyYear } = currentDateOfDay;
-
-  // const actuallyDay = day.date.slice(0, 2).replace("-", "") * 1 - 1;
-  // const actuallyMonth =
-  //   day.date.slice(-7, -4).replace("-", "").replace("-", "") * 1 - 1;
-
-  // const actuallyYear = day.date.slice(-4);
-
-  // const actuallyDate = `${actuallyDay}/${actuallyMonth}/${actuallyYear}`;
-
-  const daysOfWeek = [
-    "Niedziela",
-    "Poniedziałek",
-    "Wtorek",
-    "Środa",
-    "Czwartek",
-    "Piątek",
-    "Sobota",
-    "Niedziela",
-  ];
-
   const indexDayOfWeek =
     new Date(actuallyYear, actuallyMonth, actuallyDay).getDay() + 1;
-
-  const getDay = (color) => {
-    return <p style={{ color: color }}>{daysOfWeek[indexDayOfWeek]}</p>;
-  };
-
+  const isEventOnDay = day.events.length && "isEventOn";
+  const isSundayDay = indexDayOfWeek === 7 && "isSundayDay";
   return (
     <div
       className="day-calendar"
@@ -49,8 +28,8 @@ const Day = ({ id, day }) => {
       }}
     >
       <p>{day.date.slice(0, 2).replace("-", "")}</p>
-      {indexDayOfWeek === 7 ? getDay("red") : getDay()}
-      <p>Events: {day.events.length}</p>
+      <p className={isSundayDay}>{DAYS_OF_WEEK[indexDayOfWeek]}</p>
+      <p className={isEventOnDay}>Events: {day.events.length}</p>
       {isShowModal && (
         <Modal
           actuallyMonth={actuallyMonth}
