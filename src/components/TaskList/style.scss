@@ -1,18 +1,55 @@
 .task-list-container {
-  height: 100%;
-  background-color: coral;
-  padding-top: 10px;
+  font-size: 24px;
+  height: 500px;
+  width: 100%;
+  background-color: #fefbe9;
+  padding-top: 20px;
+  overflow: hidden;
 }
 
 .task-list {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: flex-start;
-  list-style-type: none;
+  padding: 0;
+  flex-wrap: wrap;
 }
 
 .task {
+  font-size: 14px;
+  line-height: 15px;
+  margin: 0 10px 20px;
+  height: 150px;
+  width: 248px;
+  border-radius: 30px 30px 5px 5px;
+  box-shadow: 2px 0 4px 0 black;
+  background-color: #e1eedd;
   display: flex;
   flex-direction: column;
+}
+.info-modal {
+  position: absolute;
+  font-size: 12px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 150px;
+  background-color: #ddd;
+  line-height: 150px;
+  border: 3px solid red;
+  border-radius: 10px;
+}
+
+.remove-task-button {
+  background-color: #fff;
+  border: none;
+  width: 30%;
+  margin: 15px auto 0;
+  box-shadow: 0 0 2px 0 black;
+  transition: 0.3s;
+  &:hover {
+    background-color: #f0a04b;
+    cursor: pointer;
+    width: 60%;
+    border-radius: 20px;
+  }
 }

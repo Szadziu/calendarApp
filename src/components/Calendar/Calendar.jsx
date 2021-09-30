@@ -1,15 +1,9 @@
 import Day from "../Day";
-
 import "./style.scss";
 
-const Calendar = ({ actuallyMonth }) => {
+const Calendar = ({ actuallyMonth, fetchMonth }) => {
   const renderDays = actuallyMonth.map((day) => (
-    <Day
-      actuallyMonth={actuallyMonth}
-      key={day.dayId}
-      id={day.dayId}
-      day={day}
-    />
+    <Day fetchMonth={fetchMonth} key={day.dayId} day={day} />
   ));
 
   return <>{<div className="main-calendar">{renderDays}</div>}</>;

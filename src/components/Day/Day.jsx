@@ -1,12 +1,9 @@
 import { useState } from "react";
-
 import Modal from "../Modal";
-
 import { DAYS_OF_WEEK } from "../../utils/utils";
-
 import "./style.scss";
 
-const Day = ({ id, day }) => {
+const Day = ({ day, fetchMonth }) => {
   const [isShowModal, setIsShowModal] = useState(false);
   const currentDateOfDay = {
     actuallyDay: day.date.slice(0, 2).replace("-", "") * 1 - 1,
@@ -14,8 +11,8 @@ const Day = ({ id, day }) => {
       day.date.slice(-7, -4).replace("-", "").replace("-", "") * 1 - 1,
     actuallyYear: day.date.slice(-4),
   };
-  const actuallyDate = `${currentDateOfDay.actuallyDay}/${currentDateOfDay.actuallyMonth}/${currentDateOfDay.actuallyYear}`;
   const { actuallyDay, actuallyMonth, actuallyYear } = currentDateOfDay;
+  const actuallyDate = `${actuallyDay}/${actuallyMonth}/${actuallyYear}`;
   const indexDayOfWeek =
     new Date(actuallyYear, actuallyMonth, actuallyDay).getDay() + 1;
   const isEventOnDay = day.events.length && "isEventOn";
@@ -34,11 +31,12 @@ const Day = ({ id, day }) => {
       <p className={isEventOnDay}>Events: {day.events.length}</p>
       {isShowModal && (
         <Modal
+          fetchMonth={fetchMonth}
           actuallyMonth={actuallyMonth}
+          actuallyYear={actuallyYear}
           actuallyDate={actuallyDate}
           isDisplay={setIsShowModal}
           day={day}
-          idDay={id}
         />
       )}
     </div>

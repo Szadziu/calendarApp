@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
-
 import Arrow from "../Arrow";
-
 import { MONTHS_OF_YEAR } from "../../utils/utils";
-
 import "./style.scss";
 
 const Header = ({ fetchMonth }) => {

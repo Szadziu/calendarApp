@@ -1,10 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-
 import TaskList from "../TaskList";
-
 import "./style.scss";
 
-const Modal = ({ day, isDisplay, actuallyDate }) => {
+const Modal = ({
+  day,
+  isDisplay,
+  actuallyDate,
+  fetchMonth,
+  actuallyMonth,
+  actuallyYear,
+}) => {
   const modalOverlayBackground = useRef(null);
 
   useEffect(() => {
@@ -30,7 +35,7 @@ const Modal = ({ day, isDisplay, actuallyDate }) => {
         },
       }
     );
-
+    await fetchMonth(actuallyMonth, actuallyYear);
     return response.json();
   };
 
@@ -42,7 +47,11 @@ const Modal = ({ day, isDisplay, actuallyDate }) => {
         <p>{`Masz ${day.events.length} wydarzeń na ten dzień`}</p>
         <button
           className="add-button-modal"
-          onClick={() => addTask({ title: titleTask, body: bodyTask })}
+          onClick={() => {
+            addTask({ title: titleTask, body: bodyTask });
+            setTitleTask("");
+            setBodyTask("");
+          }}
         >
           add task
         </button>
@@ -50,6 +59,7 @@ const Modal = ({ day, isDisplay, actuallyDate }) => {
           Title
         </label>
         <input
+          className="inputTask"
           value={titleTask}
           id="title"
           placeholder="wpisz tytuł"
@@ -60,13 +70,20 @@ const Modal = ({ day, isDisplay, actuallyDate }) => {
           Body
         </label>
         <input
+          className="inputTask"
           value={bodyTask}
           id="body"
           placeholder="wpisz treść"
           type="text"
           onChange={({ target: { value } }) => setBodyTask(value)}
         />
-        <TaskList actuallyDate={actuallyDate} day={day} />
+        <TaskList
+          fetchMonth={fetchMonth}
+          actuallyMonth={actuallyMonth}
+          actuallyYear={actuallyYear}
+          actuallyDate={actuallyDate}
+          day={day}
+        />
       </div>
     </>
   );
