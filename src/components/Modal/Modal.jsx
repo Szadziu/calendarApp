@@ -46,6 +46,7 @@ const Modal = ({
         <p>{`Wybrana data to: ${day.date}`}</p>
         <p>{`Masz ${day.events.length} wydarzeń na ten dzień`}</p>
         <button
+          disabled={!(titleTask.length > 2) || !(bodyTask.length > 2)}
           className="add-button-modal"
           onClick={() => {
             addTask({ title: titleTask, body: bodyTask });
@@ -53,10 +54,10 @@ const Modal = ({
             setBodyTask("");
           }}
         >
-          add task
+          dodaj wydarzenie
         </button>
         <label className="title-label" htmlFor="title">
-          Title
+          Tytuł
         </label>
         <input
           className="inputTask"
@@ -67,7 +68,7 @@ const Modal = ({
           onChange={({ target: { value } }) => setTitleTask(value)}
         />
         <label className="body-label" htmlFor="body">
-          Body
+          Opis
         </label>
         <input
           className="inputTask"

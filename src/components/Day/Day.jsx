@@ -28,7 +28,7 @@ const Day = ({ day, fetchMonth }) => {
         {day.date.slice(0, 2).replace("-", "")}
       </p>
       <p className={isSundayDay}>{DAYS_OF_WEEK[indexDayOfWeek]}</p>
-      <p className={isEventOnDay}>Events: {day.events.length}</p>
+      <p className={isEventOnDay}>Wydarzenia: {day.events.length}</p>
       {isShowModal && (
         <Modal
           fetchMonth={fetchMonth}
