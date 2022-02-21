@@ -5,7 +5,7 @@ import './style.scss';
 
 const Main = ({ actuallyMonth, fetchMonth }) => {
   const { width, height } = useWindowDimensions();
-  const isDesktopScreen = width >= 1366 && height >= 768;
+  const isDesktopScreen = width >= 800 && height >= 600;
 
   return isDesktopScreen ? (
     <div className='main-container'>
