@@ -1,37 +1,49 @@
 .day-calendar {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  flex-basis: 12%;
-  font-size: 12px;
-  line-height: 1px;
-  background-color: #e1eedd;
-  border-radius: 20px 10px;
-  box-shadow: 0 0 1px 0 black;
-  color: #183a1d;
-  font-family: "Oswald", sans-serif;
+  flex-basis: 12.65%;
   margin: 10px;
+  box-shadow: 0 0 1px 0 black;
+  border-radius: 20px 10px;
+
+  background-color: #e1eedd;
+  color: #183a1d;
+
+  font-size: 1rem;
+
   transition: 0.3s;
+
   &:hover {
     background-color: #f0a04b;
     color: #000;
     cursor: pointer;
   }
+
   &:hover p.isEventOn {
     color: #416a59;
   }
+
   &:hover p.number-day-calendar {
-    transform: translate(50px) scale(1.4) rotateZ(360deg);
+    transform: translate(30px) scale(1.4) rotateZ(360deg);
   }
+
   &:hover p.isDayOfWeek {
     transform: scale(1.6);
   }
+
   &:hover p.isSundayDay {
     transform: scale(1.6);
+  }
+
+  @media (min-width: 1920px) {
+    font-size: 1.2rem;
   }
 }
 .isEventOn {
   color: rgb(241, 50, 50);
+  font-size: 1rem;
 }
 .isSundayDay {
   color: rgb(241, 50, 50);
@@ -44,7 +56,7 @@
 }
 
 .number-day-calendar {
-  font-size: 22px;
+  font-size: 1.4rem;
   font-weight: 600;
   transition: 0.5s;
 }

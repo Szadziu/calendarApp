@@ -1,14 +1,23 @@
-import Calendar from "../Calendar/Calendar";
-import Header from "../Header";
-import "./style.scss";
+import Calendar from '../Calendar/Calendar';
+import Header from '../Header';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
+import './style.scss';
 
 const Main = ({ actuallyMonth, fetchMonth }) => {
-  return (
-    <div className="main-container">
+  const { width, height } = useWindowDimensions();
+  const isDesktopScreen = width >= 1366 && height >= 768;
+
+  return isDesktopScreen ? (
+    <div className='main-container'>
       <Header fetchMonth={fetchMonth} />
       <Calendar fetchMonth={fetchMonth} actuallyMonth={actuallyMonth} />
     </div>
+  ) : (
+    <div className='resolution-info'>
+      {
+        'Przykro mi :( aplikacja jest dostępna tylko dla urządzeń o rozdzielczości minimum 1366x768'
+      }
+    </div>
   );
 };
-
 export default Main;

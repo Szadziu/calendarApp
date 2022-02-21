@@ -1,7 +1,24 @@
 .main-container {
-  margin: 30px auto 0;
-  width: 80%;
-  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
   border-radius: 20px;
+
   background-color: #fff;
+}
+.resolution-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  padding: 0.2rem;
+  width: 90%;
+  font-size: 1rem;
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
 }

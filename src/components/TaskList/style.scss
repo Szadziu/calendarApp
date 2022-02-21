@@ -1,55 +1,92 @@
 .task-list-container {
-  font-size: 24px;
-  height: 500px;
+  min-height: 35vh;
   width: 100%;
+  border-top: 2px solid black;
+  padding-top: 1rem;
+  overflow-x: hidden;
+  overflow: scroll;
+
   background-color: #fefbe9;
-  padding-top: 20px;
-  overflow: hidden;
+
+  font-size: 1.2rem;
+
+  @media (min-width: 1920px) {
+    font-size: 1.8rem;
+  }
+}
+.task-list-container::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.task-list-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.task-list-container::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }
 
 .task-list {
   display: flex;
-  padding: 0;
+  justify-content: space-around;
   flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 .task {
-  font-size: 14px;
-  line-height: 15px;
-  margin: 0 10px 20px;
-  height: 150px;
-  width: 248px;
-  border-radius: 30px 30px 5px 5px;
-  box-shadow: 2px 0 4px 0 black;
-  background-color: #e1eedd;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-basis: 30%;
+  height: 10rem;
+  margin-bottom: 1rem;
+  border-radius: 30px 30px 5px 5px;
+  box-shadow: 2px 0 4px 0 black;
+
+  background-color: #e1eedd;
+
+  font-size: 0.8rem;
+
+  @media (min-width: 1920px) {
+    height: 12rem;
+    font-size: 1.2rem;
+  }
 }
 .info-modal {
   position: absolute;
-  font-size: 12px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
   height: 150px;
-  background-color: #ddd;
-  line-height: 150px;
   border: 3px solid red;
   border-radius: 10px;
+
+  background-color: #ddd;
+
+  font-size: 12px;
+  line-height: 150px;
 }
 
 .remove-task-button {
-  background-color: #fff;
-  border: none;
   width: 30%;
-  margin: 15px auto 0;
+  border: none;
   box-shadow: 0 0 2px 0 black;
+
+  background-color: #fff;
+
   transition: 0.3s;
+
   &:hover {
-    background-color: #f0a04b;
-    cursor: pointer;
     width: 60%;
     border-radius: 20px;
+    background-color: #f0a04b;
+    cursor: pointer;
+  }
+  @media (min-width: 1920px) {
+    padding: 0.5rem;
+    font-size: 1.4rem;
   }
 }

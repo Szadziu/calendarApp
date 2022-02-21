@@ -1,12 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.app-container {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
+body {
+  font-family: 'Oswald', sans-serif;
 }

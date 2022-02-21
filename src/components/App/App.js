@@ -1,6 +1,7 @@
-import { useState } from "react";
-import Main from "../Main";
-import { URL_GET_MONTH } from "../../utils/utils";
+import { useState } from 'react';
+import Main from '../Main';
+import { URL_GET_MONTH } from '../../utils/utils';
+import './style.scss';
 
 const App = () => {
   const [actuallyMonth, setActuallyMonth] = useState([]);
@@ -12,11 +13,7 @@ const App = () => {
       });
   };
 
-  return (
-    <div>
-      <Main actuallyMonth={actuallyMonth} fetchMonth={fetchMonth} />
-    </div>
-  );
+  return <Main actuallyMonth={actuallyMonth} fetchMonth={fetchMonth} />;
 };
 
 export default App;
